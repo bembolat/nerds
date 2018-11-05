@@ -36,7 +36,17 @@ ul {
 }
 
 .visually-hidden {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 .main-header {
@@ -76,13 +86,48 @@ ul {
 }
 
 .basket {
-    margin-left: 40px;
+    margin-left: auto;
 }
 
 .basket a {
+    position: relative;
     line-height:30px;
     font-weight: 500;
     text-transform: uppercase;
+}
+
+.main-header a[href]:hover,
+.header-catalog a[href]:hover {
+    color: #fb565a;
+}
+
+.main-header a[href]:active,
+.header-catalog a[href]:active {
+    color: rgba(166, 166, 166, .9);
+}
+
+.active {
+padding-bottom: 10px;
+border-bottom: 2px solid #fb565a;
+}
+
+a .logo:hover {
+    opacity:0.8;
+}
+
+a .logo:active {
+opacity: 0.4;
+}
+
+.basket a::before {
+    content: "";
+    position: absolute;
+    left: -23px;
+    top: 4px;
+    width: 15px;
+    height: 15px;
+    display: block;
+    background: url(../img/basket-icon.png) no-repeat;
 }
 
 .slider-presentation {
@@ -121,6 +166,14 @@ ul {
     margin-top: 22px;
 }
 
+.main-header .slider-btn:hover{
+    background-color: #e74246;
+    color: #ffffff !important;
+}
+
+.main-header .slider-btn:active {
+    color: #e37376 !important;
+}
 .slider-professionally {
     display: none;
     width: 1160px;
@@ -186,6 +239,15 @@ ul {
     padding: 18px 40px;
 }
 
+.web a:hover {
+    background-color: #e74246;
+}
+
+.web a:active {
+    background-color: #d7373b;
+    color: #e26c6e;
+}
+
 .applications a {
     display: inline-block;
     text-transform: uppercase;
@@ -195,6 +257,15 @@ ul {
     background-color: #00ca74;
     border-radius: 3px;
     padding: 18px 40px;
+}
+
+.applications a:hover {
+    background: #00bc6c;
+}
+
+.applications a:active {
+    background: #00aa62;
+    color: #4dc491;
 }
 
 .presentations a {
@@ -208,6 +279,14 @@ ul {
     padding: 18px 40px;
 }
 
+.presentations a:hover {
+  background: #eab534;
+}
+
+.presentations a:active {
+  background: #e5a722;
+  color: #edc265;
+}
 
 .wrapper-about-company {
     display: flex;
@@ -251,6 +330,19 @@ ul {
     border-bottom: 2px solid #eeeeee;
     margin-top: 80px;
     min-height: 180px;
+}
+
+.portfolio img {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.portfolio img:hover {
+    opacity: 1;
+}
+
+.portfolio img:active {
+    opacity: 0.2;
 }
 
 .statistics {
@@ -315,6 +407,15 @@ ul {
     line-height: 18px;
     margin-top: 21px;
     text-transform: uppercase;
+}
+
+.link-write:hover {
+    background-color: #e74246;
+}
+
+.link-write:active {
+    background-color: #d7373b;
+    color: #e26c6e;
 }
 
 .cooperation h2 {
@@ -478,6 +579,13 @@ ul {
    color: #b2b2b2;
 }
 
+.sorting-item a:hover {
+    color: #666666;
+}
+.sorting-item a:active {
+    color: #000000;
+}
+
 .sorting-up {
     display: inline-block;
     background: url(..//img//sorting-up.png) no-repeat;
@@ -515,6 +623,7 @@ ul {
 
 .info-order {
     position: absolute;
+    display: none;
     padding: 29px 0 42px 0;
     bottom: 0;
     width: 360px;
@@ -552,6 +661,9 @@ ul {
     background-color: #4d4d4d;
 }
 
+.catalog-item:hover .info-order {
+    display: block;
+}
 aside {
     width: 263px;
 }
@@ -627,6 +739,15 @@ aside {
     color: #000000;
 }
 
+.catalog-page-list a:hover {
+    background: #dfdfdf;
+}
+
+.catalog-page-list a:active {
+    background: #d5d5d5;
+    color: #b7b7b7;
+}
+
 .catalog-page-list .active-page {
     margin-left: 0;
     background-color: #fff;
@@ -689,6 +810,15 @@ aside {
     text-transform: uppercase;
     background-color: #eeeeee;
     border: none;
+}
+
+.form-button:hover {
+    background: #dfdfdf;
+}
+
+.form-button:active {
+    background: #d5d5d5;
+    color: #b7b7b7;
 }
 
 .footer-up {
@@ -788,7 +918,16 @@ aside {
     margin-left: 10px;
 }
 
-.vk:before {
+.social-button:hover {
+    background-color: #e74246;
+}
+
+.social-button:active {
+    background-color: #d7373b;
+    color: #e26c6e;
+}
+
+.vk::before {
     content: " ";
     position: absolute;
     background: url(../img/vk-icon.png) no-repeat;
@@ -798,7 +937,11 @@ aside {
     left: 25px;
 }
 
-.fb:before {
+.vk:active::before {
+    background: url(../img/vk-icon-active.png) no-repeat;
+}
+
+.fb::before {
     content: " ";
     position: absolute;
     background: url(../img/fb-icon.png) no-repeat;
@@ -808,7 +951,11 @@ aside {
     left: 34px;
 }
 
-.inst:before {
+.fb:active::before {
+    background: url(../img/fb-icon-active.png) no-repeat;
+}
+
+.inst::before {
     content: " ";
     position: absolute;
     background: url(../img/insta-icon.png) no-repeat;
@@ -818,6 +965,9 @@ aside {
     left: 29px;
 }
 
+.inst:active::before {
+    background: url(../img/insta-icon-active.png) no-repeat;
+}
 .vk {
     margin-left: 0;
 }
@@ -841,6 +991,79 @@ aside {
     display: block;
     animation-name: bounce;
     animation-duration: 0.6s;
+}
+.grid-list li,
+.feature-list li {
+    padding-left: 35px;
+}
+
+.form-filter label {
+    position: relative;
+}
+
+.grid-list label::before {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    top: -3px;
+    left: -35px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 4px solid #4d4d4d;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.grid-list label:hover::before,
+.grid-list input[type=radio]:checked + label:hover::after {
+    opacity: 1;
+}
+
+.grid-list input[type=radio]:checked + label::after {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    top: 5px;
+    left: -27px;
+    display: block;
+    width: 9px;
+    height: 9px;
+    background-color: #4d4d4d;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.feature-list label::before {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    top: -3px;
+    left: -35px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #4d4d4d;
+    border-radius: 2px;
+    opacity: 0.6;
+}
+
+.feature-list label:hover::before,
+.feature-list input[type=checkbox]:checked + label:hover::after {
+    opacity: 1;
+}
+
+.feature-list input[type=checkbox]:checked + label::after {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+    top: -6px;
+    left: -32px;
+    display: block;
+    width: 28px;
+    height: 23px;
+    background: url(..//img/checkbox-on.svg);
+    opacity: 0.6;
 }
 
 @keyframes bounce {
