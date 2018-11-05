@@ -69,6 +69,7 @@ window.addEventListener("keydown", function(evt) {
    if (magic.classList.contains("modal-show")) {
      evt.preventDefault();
      magic.classList.remove("modal-show");
+     popup.classList.remove("modal-show");
    }
  }
 });
